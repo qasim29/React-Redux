@@ -1,7 +1,10 @@
-import React from 'react';
+import React from "react";
+import MachinesList from "./MachinesList";
 
-export default function Machines () {
+export default function Machines() {
 	return (
-		<div>Machines view</div>
+		<>
+			<MachinesList></MachinesList>
+		</>
 	);
 }

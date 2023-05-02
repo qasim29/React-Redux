@@ -25,6 +25,7 @@ app
 		console.log('Server listening on port 8080')
 	);
 
+
 const wss = new WebSocket.Server({ port: 1337 });
 
 
@@ -37,7 +38,9 @@ wss.on('connection', function connection (ws) {
 			id: updatedMachine.id,
 			health: updatedMachine.health
 		}));
+		// console.log('yarooq');
 	}, 500);
+
 });
 
 console.log('WebSocket listening on port 1337');

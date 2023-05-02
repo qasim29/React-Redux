@@ -1,0 +1,30 @@
+.flexcontainer {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+th {
+	border-style: none;
+	text-align: left;
+	border: 1px solid white;
+	border-bottom: 1px solid black;
+
+}
+table {
+	font-family: arial, sans-serif;
+	font-size: large;
+    border-collapse: collapse;
+	width: 80%;
+	margin: auto;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+td{
+    padding: 5px;
+
+}
+tr {
+	border: 1px solid black;
+}
