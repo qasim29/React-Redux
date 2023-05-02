@@ -1,12 +1,12 @@
-import { machineActions } from './machine-Slice';
+import { machineActions } from "./machine-Slice";
 
 export const getMachinesList = () => {
 	return async (dispatch) => {
 		const fetchMachineData = async () => {
-			const response = await fetch('http://localhost:8080/machines');
+			const response = await fetch("http://localhost:8080/machines");
 
 			if (!response.ok) {
-				throw new Error('cant fetch /machines');
+				throw new Error("cant fetch /machines");
 			}
 
 			const data = response.json();
@@ -22,10 +22,13 @@ export const getMachinesList = () => {
 			// machineActions.setName(list.name);
 			// machineActions.setIpAddress(list.ip_address);
 			// machineActions.setHealth(list.health);
-
 		} catch (error) {
-			console.log('error fetching', error);
+			console.log("error fetching", error);
 		}
 	};
 };
 
+// export const updateMachineList = (dispatch) => {
+
+
+// };

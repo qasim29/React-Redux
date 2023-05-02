@@ -1,34 +1,40 @@
 /* eslint-disable quotes */
 import React from "react";
 import { useEffect } from "react";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { getMachinesList } from "./store/machine-actions";
+import { getMachinesList } from "../store/machine-actions";
+import { machineActions } from "../store/machine-Slice";
 import "./MachinesList.module.css";
-import useWebSocket from "react-use-websocket";
 import MachinedataRow from "./MachinedataRow";
+import { useWebSocket } from "react-use-websocket/dist/lib/use-websocket";
 
-// import { setMachine } from './store/reducers';
 
 const MachinesList = () => {
 	const dispatch = useDispatch();
 	const machine = useSelector((state) => state.machine);
+	const { lastJsonMessage } = useWebSocket("ws://127.0.0.1:1337", {
+		onOpen: () => {
+			console.log("WebSocket connection established.");
+		},
+		share: true,
+	});
+
+	const id = lastJsonMessage?.id || null;
+	const health = lastJsonMessage?.health || null;
+	if (id && health) {
+		setTimeout(() => {
+			dispatch(machineActions.setHealth({ id, health })); 
+		}, 5000);
+	}
+	// dispatch(updateMachineList());
 
 	useEffect(() => {
 		dispatch(getMachinesList());
+
+		return () => {};
 	}, [dispatch]);
 
-	// const { lastJsonMessage } = useWebSocket("ws://127.0.0.1:1337", {
-	// 	onOpen: () => {
-	// 		console.log("WebSocket connection established.");
-	// 	},
-	// 	share: true,
-	// 	filter: false,
-	// });
-	// const activities = lastJsonMessage;
-	// console.log(activities);
-	// console.log(machine);
 	return (
 		<table>
 			<tbody>

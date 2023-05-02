@@ -38,8 +38,7 @@ wss.on('connection', function connection (ws) {
 			id: updatedMachine.id,
 			health: updatedMachine.health
 		}));
-		// console.log('yarooq');
-	}, 500);
+	}, 1000);
 
 });
 

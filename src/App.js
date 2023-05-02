@@ -1,9 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Machines from './Machines';
+import Machines from './components/Machines';
 import './App.css';
-
-
 
 const App = () => {
 	return (
