@@ -1,7 +1,8 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Machines from './components/Machines';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Machines from "./components/Machines";
+import "./App.css";
+import MachineDetails from "./components/MachineDetails";
 
 const App = () => {
 	return (
@@ -22,13 +23,16 @@ const App = () => {
 				</nav>
 
 				<Switch>
-					<Route path="/machines">
+					<Route path="/machines" exact>
 						<Machines />
+					</Route>
+					<Route path="/machines/:id">
+						<MachineDetails/>
 					</Route>
 				</Switch>
 			</div>
 		</Router>
 	);
-}
+};
 
 export default App;

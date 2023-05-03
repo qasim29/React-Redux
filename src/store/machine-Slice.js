@@ -29,7 +29,7 @@ export const machineSlice = createSlice({
 			let objIndex = state.machineList.findIndex(
 				(obj) => obj.id === action.payload.id
 			);
-			console.log(objIndex);
+			// console.log(objIndex);
 			// console.log("Before update: ", state.machineList[objIndex]);
 			state.machineList[objIndex].health=action.payload.health;
 			// console.log("after update: ", state.machineList[objIndex]);

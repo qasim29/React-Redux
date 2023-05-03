@@ -17,7 +17,7 @@ const MachinesList = () => {
 		onOpen: () => {
 			console.log("WebSocket connection established.");
 		},
-		share: true,
+		share: true
 	});
 
 	const id = lastJsonMessage?.id || null;
@@ -25,7 +25,7 @@ const MachinesList = () => {
 	if (id && health) {
 		setTimeout(() => {
 			dispatch(machineActions.setHealth({ id, health })); 
-		}, 5000);
+		}, 500);
 	}
 	// dispatch(updateMachineList());
 
@@ -47,6 +47,7 @@ const MachinesList = () => {
 					return (
 						<MachinedataRow
 							key={obj.id}
+							id={obj.id}
 							name={obj.name}
 							ip_address={obj.ip_address}
 							health={obj.health}

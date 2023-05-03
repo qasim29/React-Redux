@@ -10,7 +10,7 @@ const Health = (props) => {
 	} else if (props.data < 71) {
 		fluid = " #f0ad4e ";
 	}
-	let fill = props.data.toString() + "%";
+	let fill = props.data?.toString() + "%";
 	// console.log(fill);
 	return (
 		<div>

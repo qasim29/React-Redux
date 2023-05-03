@@ -38,7 +38,7 @@ wss.on('connection', function connection (ws) {
 			id: updatedMachine.id,
 			health: updatedMachine.health
 		}));
-	}, 1000);
+	}, 2000);
 
 });
 

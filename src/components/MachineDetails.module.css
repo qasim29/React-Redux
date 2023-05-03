@@ -1,0 +1,10 @@
+.flexContainer{
+    display: flex;
+    width:80%;
+    margin: auto;
+
+}
+
+.childContainer{
+    width: 50%;
+}
